@@ -34,8 +34,15 @@
 
 .bottom_block {
     .this_time,
-    .this_city {
+    .this_city,
+    .this_description {
         color: $base-color;
         font-size: 25px;
     } 
+}
+
+.this_description {
+    color: $base-color;
+    font-size: 25px;
+    align-items: left;
 }
