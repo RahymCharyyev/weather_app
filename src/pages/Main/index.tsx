@@ -1,45 +1,97 @@
 import { Flex, Layout } from 'antd';
-import { Title, WeatherBigCard, WeatherSmallCard } from '../../components';
+import Marquee from 'react-fast-marquee';
+import { Title, WeatherBigCard } from '../../components';
 import { useWeatherData } from '../../hooks';
-import backgorund from '../../assets/bg.webp';
+import backgorund from '../../assets/bg.mp4';
+import { customIcons } from '../../utils/customIcons';
+import { MarqueeItem } from '../../components/Marquee';
+
+const cities = [
+  'Aşgabat',
+  'Balkanabat',
+  'Türkmenbaşy',
+  'Daşoguz',
+  'Türkmenabat',
+  'Mary',
+];
 
 export const MainPage = () => {
-  const weatherData = useWeatherData('ashgabat');
-  const ahalData = useWeatherData('ahal');
-  const balkanData = useWeatherData('balkanabat');
-  const dasoguzData = useWeatherData('dashoguz');
-  const lebapData = useWeatherData('turkmenabat');
-  const maryData = useWeatherData('mary');
+  const weatherData = useWeatherData();
+
+  const filteredCities = weatherData?.filter((city: { place: string }) =>
+    cities.includes(city.place)
+  );
 
   return (
     <>
-      {weatherData && (
+      {filteredCities && (
         <Layout
           style={{
-            padding: '15px 55px',
-            backgroundImage: `url(${backgorund})`,
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            background: 'transparent',
           }}
         >
+          <video
+            autoPlay
+            loop
+            muted
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              zIndex: -1,
+            }}
+          >
+            <source src={backgorund} type='video/mp4' />
+          </video>
           <Title />
-          <Flex justify='space-between' wrap='wrap' style={{ rowGap: '10px' }}>
-            <WeatherBigCard city='Aşgabat şäheri' weatherData={weatherData} />
-            <WeatherBigCard city='Ahal welaýaty' weatherData={ahalData!} />
-            <WeatherSmallCard
-              city='Balkan welaýaty'
-              weatherData={balkanData!}
+          <Flex
+            justify='space-between'
+            wrap='wrap'
+            style={{ rowGap: '10px', padding: '0px 50px 15px 50px' }}
+          >
+            <WeatherBigCard
+              city={filteredCities[5].place}
+              weatherData={filteredCities[5]}
             />
-            <WeatherSmallCard
-              city='Daşoguz welaýaty'
-              weatherData={dasoguzData!}
+            <WeatherBigCard
+              city={filteredCities[1].place}
+              weatherData={filteredCities[1]}
             />
-            <WeatherSmallCard city='Lebap welaýaty' weatherData={lebapData!} />
-            <WeatherSmallCard city='Mary welaýaty' weatherData={maryData!} />
+            <WeatherBigCard
+              city={filteredCities[0].place}
+              weatherData={filteredCities[0]}
+            />
+            <WeatherBigCard
+              city={filteredCities[2].place}
+              weatherData={filteredCities[2]}
+            />
+            <WeatherBigCard
+              city={filteredCities[3].place}
+              weatherData={filteredCities[3]}
+            />
+            <WeatherBigCard
+              city={filteredCities[4].place}
+              weatherData={filteredCities[4]}
+            />
           </Flex>
         </Layout>
       )}
+      <Marquee style={{ backgroundColor: 'white' }}>
+        {weatherData?.map((city) => (
+          <>
+            <MarqueeItem
+              key={city.place}
+              city={city.place}
+              temperature={city.temperature}
+              weatherCondition={city.weather_condition}
+              customIcons={customIcons}
+            />
+          </>
+        ))}
+      </Marquee>
     </>
   );
 };

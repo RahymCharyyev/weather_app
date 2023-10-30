@@ -35,7 +35,14 @@ export const Title: FC = () => {
 
   return (
     <>
-      <Typography.Title level={1} style={{ textAlign: 'center' }}>
+      <Typography.Title
+        level={2}
+        style={{
+          fontWeight: 'bold',
+          textAlign: 'center',
+          backgroundColor: 'white',
+        }}
+      >
         {formattedDate}
       </Typography.Title>
     </>

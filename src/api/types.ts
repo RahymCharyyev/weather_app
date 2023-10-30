@@ -4,62 +4,18 @@ export interface SuccessResponse<T> {
 }
 
 export interface WeatherItemResponseData {
-  coord: Coord;
-  weather: Weather[];
-  base: string;
-  main: Main;
-  visibility: number;
-  wind: Wind;
-  rain: Rain;
-  clouds: Clouds;
-  dt: number;
-  sys: Sys;
-  timezone: number;
-  id: number;
-  name: string;
-  cod: number;
-}
-
-export interface Clouds {
-  all: number;
-}
-
-export interface Coord {
-  lon: number;
-  lat: number;
-}
-
-export interface Main {
-  temp: number;
-  feels_like: number;
-  temp_min: number;
-  temp_max: number;
-  pressure: number;
+  place: string;
+  weather_condition: string;
+  wind_direction: string;
+  air_pressure: number;
+  temperature: string;
+  wind_speed: number;
   humidity: number;
 }
 
-export interface Rain {
-  '1h': number;
-}
-
-export interface Sys {
-  type: number;
-  id: number;
-  country: string;
-  sunrise: number;
-  sunset: number;
-}
-
-export interface Weather {
-  id: number;
-  main: string;
-  description: string;
-  icon: string;
-}
-
-export interface Wind {
-  speed: number;
-  deg: number;
+export interface ResponseType {
+  success: boolean;
+  data: WeatherItemResponseData[];
 }
 
 export type WeatherResponseData = WeatherItemResponseData;
