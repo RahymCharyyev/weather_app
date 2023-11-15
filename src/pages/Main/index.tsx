@@ -1,10 +1,10 @@
-import { Flex, Layout } from 'antd';
 import Marquee from 'react-fast-marquee';
+import { Flex, Layout } from 'antd';
 import { Title, WeatherBigCard } from '../../components';
-import { useWeatherData } from '../../hooks';
-import backgorund from '../../assets/bg.mp4';
-import { customIcons } from '../../utils/customIcons';
 import { MarqueeItem } from '../../components/Marquee';
+import { useWeatherData } from '../../hooks';
+import { customIcons } from '../../utils/customIcons';
+import background from '../../assets/bg.mp4';
 
 const cities = [
   'Aşgabat',
@@ -17,6 +17,7 @@ const cities = [
 
 export const MainPage = () => {
   const weatherData = useWeatherData();
+  console.log('weatherData', weatherData);
 
   const filteredCities = weatherData?.filter((city: { place: string }) =>
     cities.includes(city.place)
@@ -44,37 +45,37 @@ export const MainPage = () => {
               zIndex: -1,
             }}
           >
-            <source src={backgorund} type='video/mp4' />
+            <source src={background} type='video/mp4' />
           </video>
           <Title />
           <Flex
             justify='space-between'
             wrap='wrap'
-            style={{ rowGap: '10px', padding: '0px 50px 15px 50px' }}
+            style={{ rowGap: '10px', padding: '0px 50px 10px 50px' }}
           >
             <WeatherBigCard
-              city={filteredCities[5].place}
-              weatherData={filteredCities[5]}
+              city={filteredCities[0].place}
+              weatherData={filteredCities[0]}
             />
             <WeatherBigCard
               city={filteredCities[1].place}
               weatherData={filteredCities[1]}
             />
             <WeatherBigCard
-              city={filteredCities[0].place}
-              weatherData={filteredCities[0]}
+              city={filteredCities[5].place}
+              weatherData={filteredCities[5]}
             />
             <WeatherBigCard
               city={filteredCities[2].place}
               weatherData={filteredCities[2]}
             />
             <WeatherBigCard
-              city={filteredCities[3].place}
-              weatherData={filteredCities[3]}
-            />
-            <WeatherBigCard
               city={filteredCities[4].place}
               weatherData={filteredCities[4]}
+            />
+            <WeatherBigCard
+              city={filteredCities[3].place}
+              weatherData={filteredCities[3]}
             />
           </Flex>
         </Layout>

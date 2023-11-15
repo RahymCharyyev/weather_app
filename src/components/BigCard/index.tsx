@@ -22,11 +22,14 @@ export const WeatherBigCard: FC<WeatherBigCardProps> = ({
         <Card
           title={city}
           headStyle={{
-            fontSize: '32px',
-            padding: '5px',
+            fontSize: '34px',
+            padding: '0px',
             textAlign: 'center',
             fontWeight: 'bold',
             color: 'white',
+          }}
+          bodyStyle={{
+            padding: '0px',
           }}
           className='bigCard'
         >
@@ -34,12 +37,12 @@ export const WeatherBigCard: FC<WeatherBigCardProps> = ({
             <Image
               src={`${customIcons[weatherData.weather_condition]}`}
               alt='Weather Icon'
-              width={'150px'}
+              width={'140px'}
               preview={false}
             />
             <Flex vertical align='center' gap={20}>
               <Typography.Title className='bigCard__wrapper-title'>
-                {weatherData.temperature}
+                {weatherData.temperature} °C
               </Typography.Title>
               <Typography.Title className='bigCard__wrapper-subtitle'>
                 {weatherData.weather_condition}

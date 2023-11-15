@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { WeatherResponseData } from '../api/types';
 import { getWeather } from '../api';
+
 export const useWeatherData = () => {
   const [data, setData] = useState<WeatherResponseData[]>();
 
   const fetchWeatherData = async () => {
     try {
       const response = await getWeather();
-      setData(response);
+      const getData = response.data.map((el) => el.params);
+      setData(getData);
     } catch (error) {
       console.error('Error fetching weather data', error);
     }

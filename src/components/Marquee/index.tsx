@@ -23,7 +23,7 @@ export const MarqueeItem: FC<MarqueeItemProps> = ({
       <Image
         src={`${customIcons[weatherCondition]}`}
         alt='Weather Icon'
-        width={'60px'}
+        width={'30px'}
         preview={false}
       />
       <Divider className='marquee__divider' type='vertical' />

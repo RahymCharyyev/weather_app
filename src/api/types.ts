@@ -18,5 +18,11 @@ export interface ResponseType {
   data: WeatherItemResponseData[];
 }
 
+export interface ResponseType2 {
+  records: {
+    params: WeatherItemResponseData;
+  }[];
+}
+
 export type WeatherResponseData = WeatherItemResponseData;
 export type WeatherResponse = SuccessResponse<WeatherResponseData>;
