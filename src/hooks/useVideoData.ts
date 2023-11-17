@@ -6,13 +6,9 @@ export const useVideoData = () => {
   const [data, setData] = useState<VideoResponseData[]>();
 
   const fetchVideoData = async () => {
-    try {
-      const response = await getBackgroundVideo();
-      const getData = response.data.map((el) => el.params);
-      setData(getData);
-    } catch (error) {
-      console.error('Error fetching the background video', error);
-    }
+    const response = await getBackgroundVideo();
+    const getData = response?.data.map((el) => el.params);
+    if (getData) setData(getData);
   };
 
   useEffect(() => {

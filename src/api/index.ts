@@ -9,24 +9,32 @@ const api = axios.create({
 });
 
 export const getWeather = async () => {
-  const response = await api.get<ResponseData>(
-    `resources/weather/actions/list`
-  );
+  try {
+    const response = await api.get<ResponseData>(
+      `resources/weather/actions/list`
+    );
 
-  if (response.data) {
-    return { data: response.data.records };
-  } else {
-    throw new Error('error');
+    if (response.data) {
+      return { data: response.data.records };
+    } else {
+      throw new Error('error');
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
 export const getBackgroundVideo = async () => {
-  const response = await api.get<ResponseVideoData>(
-    `resources/video/actions/list`
-  );
-  if (response.data) {
-    return { data: response.data.records };
-  } else {
-    throw new Error('error');
+  try {
+    const response = await api.get<ResponseVideoData>(
+      `resources/video/actions/list`
+    );
+    if (response.data) {
+      return { data: response.data.records };
+    } else {
+      throw new Error('error');
+    }
+  } catch (error) {
+    console.log(error);
   }
 };

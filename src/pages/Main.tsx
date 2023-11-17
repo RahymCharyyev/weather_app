@@ -22,6 +22,8 @@ export const MainPage = () => {
     cities.includes(city.place)
   );
 
+  console.log(videoData);
+
   return (
     <div className='mainLayout'>
       {filteredCities && (
@@ -29,7 +31,7 @@ export const MainPage = () => {
           <Title />
           <video
             className='mainVideo'
-            key={videoData?.[0].filename}
+            key={videoData?.[0].id}
             autoPlay
             loop
             muted
