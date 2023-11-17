@@ -4,6 +4,7 @@ export interface SuccessResponse<T> {
 }
 
 export interface WeatherItemResponseData {
+  id: number;
   place: string;
   weather_condition: string;
   wind_direction: string;
@@ -13,15 +14,21 @@ export interface WeatherItemResponseData {
   humidity: number;
 }
 
-export interface ResponseType {
-  success: boolean;
-  data: WeatherItemResponseData[];
-}
-
-export interface ResponseType2 {
+export interface ResponseData {
   records: {
     params: WeatherItemResponseData;
   }[];
+}
+
+export interface ResponseVideoData {
+  records: {
+    params: VideoResponseData;
+  }[];
+}
+
+interface VideoResponseData {
+  id: number;
+  filename: string;
 }
 
 export type WeatherResponseData = WeatherItemResponseData;

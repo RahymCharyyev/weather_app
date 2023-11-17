@@ -1,0 +1,51 @@
+.bigCard {
+  height: 19rem;
+  width: 880px;
+  border-radius: 20px;
+  border: 1px solid rgba(177, 175, 175 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 6px 26px 2px rgba(0, 0, 0, 0.15);
+  padding: 0 10px;
+}
+
+.bigCard__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.bigCard__wrapper-title {
+  font-size: 52px;
+  margin: 0;
+  font-weight: bold;
+  color: white;
+}
+
+.bigCard__wrapper-subtitle {
+  font-size: 38px;
+  margin: 0;
+  font-weight: bold;
+  color: white;
+}
+
+.bigCard__wrapper-firstRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.bigCard__wrapper-secondRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bigCard__wrapper-secondRowText {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  font-size: 38px;
+  font-weight: bold;
+  color: white;
+}
