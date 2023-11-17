@@ -33,7 +33,7 @@ export const MainPage = () => {
             loop
             muted
           >
-            {/* <source src={`/${videoData?.[0].filename}.mp3`} type='video/mp4' /> */}
+            <source src={`/${videoData?.[0].filename}.mp3`} type='video/mp4' />
           </video>
           <Title />
           <div className='mainWrapper'>
