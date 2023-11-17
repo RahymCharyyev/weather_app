@@ -1,5 +1,5 @@
+import { VideoResponseData } from './../api/types';
 import { useEffect, useState } from 'react';
-import { VideoResponseData } from '../api/types';
 import { getBackgroundVideo } from '../api';
 
 export const useVideoData = () => {

@@ -26,7 +26,7 @@ export interface ResponseVideoData {
   }[];
 }
 
-interface VideoResponseData {
+export interface VideoResponseData {
   id: number;
   filename: string;
 }

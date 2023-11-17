@@ -26,6 +26,7 @@ export const MainPage = () => {
     <div className='mainLayout'>
       {filteredCities && (
         <div>
+          <Title />
           <video
             className='mainVideo'
             key={videoData?.[0].filename}
@@ -33,9 +34,8 @@ export const MainPage = () => {
             loop
             muted
           >
-            <source src={`/${videoData?.[0].filename}.mp3`} type='video/mp4' />
+            <source src={`/${videoData?.[0].filename}.mp4`} type='video/mp4' />
           </video>
-          <Title />
           <div className='mainWrapper'>
             <WeatherCard
               city={filteredCities[0].place}
@@ -66,15 +66,13 @@ export const MainPage = () => {
       )}
       <Marquee>
         {weatherData?.map((city) => (
-          <>
-            <MarqueeItem
-              key={city.id}
-              city={city.place}
-              temperature={city.temperature}
-              weatherCondition={city.weather_condition}
-              customIcons={customIcons}
-            />
-          </>
+          <MarqueeItem
+            key={`${city.id}-${city.place}`}
+            city={city.place}
+            temperature={city.temperature}
+            weatherCondition={city.weather_condition}
+            customIcons={customIcons}
+          />
         ))}
       </Marquee>
     </div>
